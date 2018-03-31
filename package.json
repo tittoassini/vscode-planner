@@ -1,0 +1,99 @@
+{
+    "name": "vscode-planner",
+    "displayName": "vscode-planner",
+    "description": "Simple Planning in Markdown",
+    "version": "0.1",
+    "publisher": "tittoassini",
+    "icon": "image/planner.png"
+    "engines": {
+        "vscode": "^1.21.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onLanguage:markdown"
+    ],
+    "main": "./out/extension",
+    "contributes": {
+        "commands": [
+            {
+                "command": "extension.selectSection",
+                "title": "Select Section",
+                "category": "Planner"
+            },
+            {
+                "command": "extension.saveToGoogleCalendar",
+                "title": "Save to Google Calendar",
+                "category": "Planner"
+            },
+            {
+                "command": "extension.readFromGoogleTasks",
+                "title": "Retrieve from Google Tasks",
+                "category": "Planner"
+            }
+        ],
+        "keybindings": [
+            {
+                "command": "extension.selectSection",
+                "key": "ctrl+s",
+                "mac": "cmd+s",
+                "when": "editorTextFocus && editorLangId == markdown"
+            },
+            {
+                "command": "extension.saveToGoogleCalendar",
+                "key": "ctrl+e ctrl+c",
+                "mac": "cmd+e cmd+c",
+                "when": "editorTextFocus && editorLangId == markdown"
+            },
+            {
+                "command": "extension.readFromGoogleTasks",
+                "key": "ctrl+i ctrl+t",
+                "mac": "cmd+i cmd+t",
+                "when": "editorTextFocus && editorLangId == markdown"
+            }
+        ],
+        "views": {
+            "explorer": [
+                {
+                    "id": "TODOS",
+                    "name": "TO DO",
+                    "when": "mdContext"
+                }
+            ]
+        },
+        "snippets": [
+            {
+                "language": "markdown",
+                "path": "./snippets.json"
+            }
+        ]
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "npm run compile && node ./node_modules/vscode/bin/test && npm run doctest",
+        "pack": "vsce package",
+        "doctest": "doctest-ts --tape src/*.ts;npm run compile;find src  -name \"*.doctest.ts\" | xargs -n 1 ts-node | tap-diff"
+    },
+    "devDependencies": {
+        "@types/chai": "^4.1.2",
+        "@types/mocha": "^2.2.42",
+        "@types/node": "^7.0.58",
+        "@types/tape": "^4.2.32",
+        "chai": "^4.1.2",
+        "doctest-ts": "^0.3.0",
+        "mocha": "^5.0.5",
+        "tap-diff": "^0.1.1",
+        "tape": "^4.9.0",
+        "tslint": "^5.8.0",
+        "typescript": "^2.8.1",
+        "vscode": "^1.1.14"
+    },
+    "dependencies": {
+        "@types/markdown-it": "0.0.4",
+        "markdown-it": "^8.4.1"
+    }
+}
