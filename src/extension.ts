@@ -1,6 +1,8 @@
 import * as vscode from 'vscode';
 import { ViewProvider } from './view';
-import * as Tasks from './tasks';
+import { selectSection } from './select';
+import { todos } from './todos';
+import { saveToGoogleCalendar, readFromGoogleTasks } from './commands';
 
 const todoView = new ViewProvider();
 
@@ -28,7 +30,7 @@ function onWillSave(e: vscode.TextDocumentWillSaveEvent) {
 
 async function updateView(document: vscode.TextDocument) {
     if (isMarkdown(document)) {
-        todoView.setView(Tasks.todos(document));
+        todoView.setView(todos(document));
     }
 }
 
@@ -36,12 +38,10 @@ async function updateView(document: vscode.TextDocument) {
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
 
-    //const prefix = 'markdown.plus.';
-
     [//vscode.commands.registerTextEditorCommand('extension.format', Tasks.format)
-        vscode.commands.registerTextEditorCommand('planner.selectSection', Tasks.selectSection)
-        , vscode.commands.registerTextEditorCommand('planner.saveToGoogleCalendar', Tasks.saveToGoogleCalendar)
-        , vscode.commands.registerTextEditorCommand('planner.readFromGoogleTasks', Tasks.readFromGoogleTasks)
+        vscode.commands.registerTextEditorCommand('planner.selectSection', selectSection)
+        , vscode.commands.registerTextEditorCommand('planner.saveToGoogleCalendar', saveToGoogleCalendar)
+        , vscode.commands.registerTextEditorCommand('planner.readFromGoogleTasks', readFromGoogleTasks)
     ].forEach(cmd => {
         context.subscriptions.push(cmd);
     });

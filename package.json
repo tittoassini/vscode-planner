@@ -3,6 +3,9 @@
     "displayName": "vscode-planner",
     "description": "Simple Planning in Markdown",
     "version": "0.1.0",
+    "author": {
+        "name": "Pasqualino `Titto` Assini"
+    },
     "publisher": "tittoassini",
     "icon": "image/planner.png",
     "engines": {
@@ -19,6 +22,17 @@
     "categories": [
         "Other"
     ],
+    "keywords": [
+        "planning",
+        "markdown",
+        "org",
+        "tasks",
+        "calendar"
+    ],
+    "galleryBanner": {
+        "color": "#CFB69A",
+        "theme": "light"
+    },
     "activationEvents": [
         "onLanguage:markdown"
     ],
