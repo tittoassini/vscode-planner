@@ -1,0 +1,58 @@
+{
+    "Mark a task as due today": {
+        "prefix": "due",
+        "body": [
+            "DUE $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE"
+        ],
+        "description": "Mark a task as due today"
+    },
+    "w0": {
+        "prefix": "sun",
+        "body": [
+            "EVERY SUNDAY"
+        ],
+        "description": "Mark a task as due every sunday"
+    },
+    "w1": {
+        "prefix": "mon",
+        "body": [
+            "EVERY MONDAY"
+        ],
+        "description": "Mark a task as due every monday"
+    },
+    "w2": {
+        "prefix": "tue",
+        "body": [
+            "EVERY TUESDAY"
+        ],
+        "description": "Mark a task as due every tuesday"
+    },
+    "w3": {
+        "prefix": "wed",
+        "body": [
+            "EVERY WEDNESDAY"
+        ],
+        "description": "Mark a task as due every wednesday"
+    },
+    "w4": {
+        "prefix": "thu",
+        "body": [
+            "EVERY THURSDAY"
+        ],
+        "description": "Mark a task as due every thursday"
+    },
+    "w5": {
+        "prefix": "fri",
+        "body": [
+            "EVERY FRIDAY"
+        ],
+        "description": "Mark a task as due every friday"
+    },
+    "w6": {
+        "prefix": "sat",
+        "body": [
+            "EVERY SATURDAY"
+        ],
+        "description": "Mark a task as due every saturday"
+    }
+}

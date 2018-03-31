@@ -2,11 +2,19 @@
     "name": "vscode-planner",
     "displayName": "vscode-planner",
     "description": "Simple Planning in Markdown",
-    "version": "0.1",
+    "version": "0.1.0",
     "publisher": "tittoassini",
-    "icon": "image/planner.png"
+    "icon": "image/planner.png",
     "engines": {
         "vscode": "^1.21.0"
+    },
+    "homepage": "https://github.com/tittoassini/vscode-planner",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/tittoassini/vscode-planner.git"
+    },
+    "bugs": {
+        "url": "https://github.com/tittoassini/vscode-planner/issues"
     },
     "categories": [
         "Other"
@@ -18,36 +26,36 @@
     "contributes": {
         "commands": [
             {
-                "command": "extension.selectSection",
+                "command": "planner.selectSection",
                 "title": "Select Section",
                 "category": "Planner"
             },
             {
-                "command": "extension.saveToGoogleCalendar",
+                "command": "planner.saveToGoogleCalendar",
                 "title": "Save to Google Calendar",
                 "category": "Planner"
             },
             {
-                "command": "extension.readFromGoogleTasks",
+                "command": "planner.readFromGoogleTasks",
                 "title": "Retrieve from Google Tasks",
                 "category": "Planner"
             }
         ],
         "keybindings": [
             {
-                "command": "extension.selectSection",
+                "command": "planner.selectSection",
                 "key": "ctrl+s",
                 "mac": "cmd+s",
                 "when": "editorTextFocus && editorLangId == markdown"
             },
             {
-                "command": "extension.saveToGoogleCalendar",
+                "command": "planner.saveToGoogleCalendar",
                 "key": "ctrl+e ctrl+c",
                 "mac": "cmd+e cmd+c",
                 "when": "editorTextFocus && editorLangId == markdown"
             },
             {
-                "command": "extension.readFromGoogleTasks",
+                "command": "planner.readFromGoogleTasks",
                 "key": "ctrl+i ctrl+t",
                 "mac": "cmd+i cmd+t",
                 "when": "editorTextFocus && editorLangId == markdown"
@@ -56,7 +64,7 @@
         "views": {
             "explorer": [
                 {
-                    "id": "TODOS",
+                    "id": "TodoView",
                     "name": "TO DO",
                     "when": "mdContext"
                 }
@@ -76,7 +84,9 @@
         "postinstall": "node ./node_modules/vscode/bin/install",
         "test": "npm run compile && node ./node_modules/vscode/bin/test && npm run doctest",
         "pack": "vsce package",
-        "doctest": "doctest-ts --tape src/*.ts;npm run compile;find src  -name \"*.doctest.ts\" | xargs -n 1 ts-node | tap-diff"
+        "doctest": "doctest-ts --tape src/*.ts;npm run compile;find src  -name \"*.doctest.ts\" | xargs -n 1 ts-node | tap-diff",
+        "tslint": "tslint -p tsconfig.json -c tslint.json --format stylish 'src/**/*.ts'",
+        "tslint-fix": "tslint --fix -p tsconfig.json  -c tslint.json --format stylish 'src/**/*.ts'"
     },
     "devDependencies": {
         "@types/chai": "^4.1.2",
