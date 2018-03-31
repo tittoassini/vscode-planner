@@ -196,6 +196,7 @@ All commands provided by this extensions are under the **Planner** prefix (to fi
 | Move Selected Block Up | `Alt + ↑`
 | Move Selected Block Down | `Alt + ↓`
 
+    
 
 | Snippet | ShortCut |
 |---------|----------|

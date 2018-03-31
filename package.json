@@ -1,8 +1,8 @@
 {
     "name": "vscode-planner",
-    "displayName": "vscode-planner",
+    "displayName": "Planner",
     "description": "Simple Planning in Markdown",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "author": {
         "name": "Pasqualino `Titto` Assini"
     },
@@ -97,7 +97,7 @@
         "watch": "tsc -watch -p ./",
         "postinstall": "node ./node_modules/vscode/bin/install",
         "test": "npm run compile && node ./node_modules/vscode/bin/test && npm run doctest",
-        "pack": "vsce package",
+        "pack": "rm *.vsix;vsce package",
         "doctest": "doctest-ts --tape src/*.ts;npm run compile;find src  -name \"*.doctest.ts\" | xargs -n 1 ts-node | tap-diff",
         "tslint": "tslint -p tsconfig.json -c tslint.json --format stylish 'src/**/*.ts'",
         "tslint-fix": "tslint --fix -p tsconfig.json  -c tslint.json --format stylish 'src/**/*.ts'"
