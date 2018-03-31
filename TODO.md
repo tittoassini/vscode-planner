@@ -2,11 +2,11 @@
 
 ## Markdown Planner
 
-Release DUE 2018-03-31
+Release EVERY 28 EVERY MONDAY
 
-* README and Names! Final keyboard assignments 2H NOW
+* README NOW
+* TO DO not displayed on first file NOW
 * Fix selection in list 1H NOW
-* Clean code NOW 2H
 * Configuration/Repository/Publish
   * https://keepachangelog.com/en/1.0.0/
   * Manage dependencies https://greenkeeper.io/

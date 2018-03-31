@@ -2,7 +2,7 @@
     "name": "vscode-planner",
     "displayName": "vscode-planner",
     "description": "Simple Planning in Markdown",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "author": {
         "name": "Pasqualino `Titto` Assini"
     },
@@ -41,25 +41,25 @@
         "commands": [
             {
                 "command": "planner.selectSection",
-                "title": "Select Section",
+                "title": "Select Block",
                 "category": "Planner"
             },
             {
                 "command": "planner.saveToGoogleCalendar",
-                "title": "Save to Google Calendar",
+                "title": "Save Task to Google Calendar",
                 "category": "Planner"
             },
             {
                 "command": "planner.readFromGoogleTasks",
-                "title": "Retrieve from Google Tasks",
+                "title": "Retrieve Google Tasks",
                 "category": "Planner"
             }
         ],
         "keybindings": [
             {
                 "command": "planner.selectSection",
-                "key": "ctrl+s",
-                "mac": "cmd+s",
+                "key": "ctrl+a",
+                "mac": "cmd+a",
                 "when": "editorTextFocus && editorLangId == markdown"
             },
             {

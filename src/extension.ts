@@ -30,6 +30,7 @@ function onWillSave(e: vscode.TextDocumentWillSaveEvent) {
 
 async function updateView(document: vscode.TextDocument) {
     if (isMarkdown(document)) {
+        //console.log(todos(document));
         todoView.setView(todos(document));
     }
 }
@@ -50,7 +51,7 @@ export function activate(context: vscode.ExtensionContext) {
 
     context.subscriptions.push(vscode.window.onDidChangeActiveTextEditor(onChangeEditor));
 
-    vscode.window.registerTreeDataProvider('To Do', todoView);
+    vscode.window.registerTreeDataProvider('TodoView', todoView);
 
     if (vscode.window.activeTextEditor && vscode.window.activeTextEditor.document) { updateView(vscode.window.activeTextEditor.document); }
 }
