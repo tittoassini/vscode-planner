@@ -1,29 +1,32 @@
 # Document Processing
 
+## vscode-markdown-block
+
+* Select: treat as separate blocks SOON
+        * lines in code blocks 
+        * in tables: cell, line, all table 
+* Modify Structure
+  * Up/Down block aware (move up and down by one block rather than one line) SOON
+
+* Understand and navigate structure
+    * Outline
+    * Fold all under a heading, show only top items
+
 ## Markdown Planner
 
 Release EVERY 28 EVERY MONDAY
 
-* README NOW
-* TO DO not displayed on first file NOW
-* Fix selection in list 1H NOW
+* README
+  * explain email handling SOON
+* WORKS? TO DO not displayed on first file NOW
+* Fix selection 1H NOW
 * Configuration/Repository/Publish
-  * https://keepachangelog.com/en/1.0.0/
+  * automatic changelog https://keepachangelog.com/en/1.0.0/ 
   * Manage dependencies https://greenkeeper.io/
   * https://www.npmjs.com/package/vscode-extension-telemetry
 * Handle Task in priority order
   * Display reserved expressions (DUE, EVERY ..) in different colors
   * Customisable interval of time when dues are considered urgent
-* Reorder tasks (select and then cut and paste where wanted)
-    * Select a section cmd-s and expand selection to next level
-        * paragraphs are separate blocks 
-        * in tables: cell, line, all table 
-        * Extract as separate extension
-* Modify Structure
-  * Up/Down block aware (move up and down by one block rather than one line)
-* Understand and navigate structure
-    * Outline
-    * Fold all under a heading, show only top items
 * Stay Concentrated
   * Start/Stop pomodoro session
 * WWW and Mobile versions

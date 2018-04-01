@@ -27,7 +27,7 @@
         "markdown",
         "org",
         "tasks",
-        "calendar"
+        "todo"
     ],
     "galleryBanner": {
         "color": "#CFB69A",
@@ -98,6 +98,7 @@
         "postinstall": "node ./node_modules/vscode/bin/install",
         "test": "npm run compile && node ./node_modules/vscode/bin/test && npm run doctest",
         "pack": "rm *.vsix;vsce package",
+        "release": "npm run pack;standard-version;git commit -am \"release\";git push --follow-tags origin master;git status",
         "doctest": "doctest-ts --tape src/*.ts;npm run compile;find src  -name \"*.doctest.ts\" | xargs -n 1 ts-node | tap-diff",
         "tslint": "tslint -p tsconfig.json -c tslint.json --format stylish 'src/**/*.ts'",
         "tslint-fix": "tslint --fix -p tsconfig.json  -c tslint.json --format stylish 'src/**/*.ts'"
