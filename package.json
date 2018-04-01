@@ -1,124 +1,125 @@
 {
-    "name": "vscode-planner",
-    "displayName": "Planner",
-    "description": "Simple Planning in Markdown",
-    "version": "0.3.0",
-    "author": {
-        "name": "Pasqualino `Titto` Assini"
-    },
-    "publisher": "tittoassini",
-    "icon": "image/planner.png",
-    "engines": {
-        "vscode": "^1.21.0"
-    },
-    "homepage": "https://github.com/tittoassini/vscode-planner",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/tittoassini/vscode-planner.git"
-    },
-    "bugs": {
-        "url": "https://github.com/tittoassini/vscode-planner/issues"
-    },
-    "categories": [
-        "Other"
+  "name": "vscode-planner",
+  "displayName": "Planner",
+  "description": "Simple Planning in Markdown",
+  "version": "0.3.1",
+  "author": {
+    "name": "Pasqualino `Titto` Assini"
+  },
+  "publisher": "tittoassini",
+  "icon": "image/planner.png",
+  "engines": {
+    "vscode": "^1.21.0"
+  },
+  "homepage": "https://github.com/tittoassini/vscode-planner",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tittoassini/vscode-planner.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tittoassini/vscode-planner/issues"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "planning",
+    "markdown",
+    "org",
+    "tasks",
+    "todo"
+  ],
+  "galleryBanner": {
+    "color": "#CFB69A",
+    "theme": "light"
+  },
+  "activationEvents": [
+    "onLanguage:markdown"
+  ],
+  "main": "./out/extension",
+  "contributes": {
+    "commands": [
+      {
+        "command": "planner.selectSection",
+        "title": "Select Block",
+        "category": "Planner"
+      },
+      {
+        "command": "planner.saveToGoogleCalendar",
+        "title": "Save Task to Google Calendar",
+        "category": "Planner"
+      },
+      {
+        "command": "planner.readFromGoogleTasks",
+        "title": "Retrieve Google Tasks",
+        "category": "Planner"
+      }
     ],
-    "keywords": [
-        "planning",
-        "markdown",
-        "org",
-        "tasks",
-        "todo"
+    "keybindings": [
+      {
+        "command": "planner.selectSection",
+        "key": "ctrl+a",
+        "mac": "cmd+a",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "planner.saveToGoogleCalendar",
+        "key": "ctrl+e ctrl+c",
+        "mac": "cmd+e cmd+c",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "planner.readFromGoogleTasks",
+        "key": "ctrl+i ctrl+t",
+        "mac": "cmd+i cmd+t",
+        "when": "editorTextFocus && editorLangId == markdown"
+      }
     ],
-    "galleryBanner": {
-        "color": "#CFB69A",
-        "theme": "light"
+    "views": {
+      "explorer": [
+        {
+          "id": "TodoView",
+          "name": "TO DO",
+          "when": "mdContext"
+        }
+      ]
     },
-    "activationEvents": [
-        "onLanguage:markdown"
-    ],
-    "main": "./out/extension",
-    "contributes": {
-        "commands": [
-            {
-                "command": "planner.selectSection",
-                "title": "Select Block",
-                "category": "Planner"
-            },
-            {
-                "command": "planner.saveToGoogleCalendar",
-                "title": "Save Task to Google Calendar",
-                "category": "Planner"
-            },
-            {
-                "command": "planner.readFromGoogleTasks",
-                "title": "Retrieve Google Tasks",
-                "category": "Planner"
-            }
-        ],
-        "keybindings": [
-            {
-                "command": "planner.selectSection",
-                "key": "ctrl+a",
-                "mac": "cmd+a",
-                "when": "editorTextFocus && editorLangId == markdown"
-            },
-            {
-                "command": "planner.saveToGoogleCalendar",
-                "key": "ctrl+e ctrl+c",
-                "mac": "cmd+e cmd+c",
-                "when": "editorTextFocus && editorLangId == markdown"
-            },
-            {
-                "command": "planner.readFromGoogleTasks",
-                "key": "ctrl+i ctrl+t",
-                "mac": "cmd+i cmd+t",
-                "when": "editorTextFocus && editorLangId == markdown"
-            }
-        ],
-        "views": {
-            "explorer": [
-                {
-                    "id": "TodoView",
-                    "name": "TO DO",
-                    "when": "mdContext"
-                }
-            ]
-        },
-        "snippets": [
-            {
-                "language": "markdown",
-                "path": "./snippets.json"
-            }
-        ]
-    },
-    "scripts": {
-        "vscode:prepublish": "npm run compile",
-        "compile": "tsc -p ./",
-        "watch": "tsc -watch -p ./",
-        "postinstall": "node ./node_modules/vscode/bin/install",
-        "test": "npm run compile && node ./node_modules/vscode/bin/test && npm run doctest",
-        "pack": "rm *.vsix;vsce package",
-        "release": "npm run pack;standard-version;git commit -am \"release\";git push --follow-tags origin master;git status",
-        "doctest": "doctest-ts --tape src/*.ts;npm run compile;find src  -name \"*.doctest.ts\" | xargs -n 1 ts-node | tap-diff",
-        "tslint": "tslint -p tsconfig.json -c tslint.json --format stylish 'src/**/*.ts'",
-        "tslint-fix": "tslint --fix -p tsconfig.json  -c tslint.json --format stylish 'src/**/*.ts'"
-    },
-    "devDependencies": {
-        "@types/chai": "^4.1.2",
-        "@types/mocha": "^2.2.42",
-        "@types/node": "^7.0.58",
-        "@types/tape": "^4.2.32",
-        "chai": "^4.1.2",
-        "doctest-ts": "^0.3.0",
-        "mocha": "^5.0.5",
-        "tap-diff": "^0.1.1",
-        "tape": "^4.9.0",
-        "tslint": "^5.8.0",
-        "typescript": "^2.8.1",
-        "vscode": "^1.1.14"
-    },
-    "dependencies": {
-        "@types/markdown-it": "0.0.4",
-        "markdown-it": "^8.4.1"
-    }
+    "snippets": [
+      {
+        "language": "markdown",
+        "path": "./snippets.json"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "npm run compile && node ./node_modules/vscode/bin/test && npm run doctest",
+    "pack": "rm *.vsix;vsce package",
+    "release": "npm run pack;standard-version;git commit -am \"release\";git push --follow-tags origin master;git status",
+    "doctest": "doctest-ts --tape src/*.ts;npm run compile;find src  -name \"*.doctest.ts\" | xargs -n 1 ts-node | tap-diff",
+    "tslint": "tslint -p tsconfig.json -c tslint.json --format stylish 'src/**/*.ts'",
+    "tslint-fix": "tslint --fix -p tsconfig.json  -c tslint.json --format stylish 'src/**/*.ts'"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.1.2",
+    "@types/mocha": "^2.2.42",
+    "@types/node": "^7.0.58",
+    "@types/tape": "^4.2.32",
+    "chai": "^4.1.2",
+    "doctest-ts": "^0.3.0",
+    "mocha": "^5.0.5",
+    "standard-version": "^4.3.0",
+    "tap-diff": "^0.1.1",
+    "tape": "^4.9.0",
+    "tslint": "^5.8.0",
+    "typescript": "^2.8.1",
+    "vscode": "^1.1.14"
+  },
+  "dependencies": {
+    "@types/markdown-it": "0.0.4",
+    "markdown-it": "^8.4.1"
+  }
 }
