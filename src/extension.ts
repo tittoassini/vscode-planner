@@ -2,7 +2,7 @@ import * as vscode from 'vscode';
 import { ViewProvider } from './view';
 import { selectSection } from './select';
 import { todos } from './todos';
-import { saveToGoogleCalendar, readFromGoogleTasks } from './commands';
+import { saveToGoogleCalendar, showInGoogleCalendar, readFromGoogleTasks } from './commands';
 
 const todoView = new ViewProvider();
 
@@ -42,6 +42,7 @@ export function activate(context: vscode.ExtensionContext) {
     [//vscode.commands.registerTextEditorCommand('extension.format', Tasks.format)
         vscode.commands.registerTextEditorCommand('planner.selectSection', selectSection)
         , vscode.commands.registerTextEditorCommand('planner.saveToGoogleCalendar', saveToGoogleCalendar)
+        , vscode.commands.registerTextEditorCommand('planner.showInGoogleCalendar', showInGoogleCalendar)
         , vscode.commands.registerTextEditorCommand('planner.readFromGoogleTasks', readFromGoogleTasks)
     ].forEach(cmd => {
         context.subscriptions.push(cmd);
@@ -53,7 +54,10 @@ export function activate(context: vscode.ExtensionContext) {
 
     vscode.window.registerTreeDataProvider('TodoView', todoView);
 
-    if (vscode.window.activeTextEditor && vscode.window.activeTextEditor.document) { updateView(vscode.window.activeTextEditor.document); }
+    if (vscode.window.activeTextEditor && vscode.window.activeTextEditor.document) {
+        //{ updateView(vscode.window.activeTextEditor.document); }
+        onChangeEditor(vscode.window.activeTextEditor);
+    }
 }
 
 // this method is called when your extension is deactivated
