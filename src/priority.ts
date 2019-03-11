@@ -2,6 +2,7 @@ const millisecsPerDay = 24 * 60 * 60 * 1000;
 
 /**
  *  daysLeft("no rush") // => 3650
+ *  daysLeft("TODO") // => 11
  *  daysLeft("SOON") // => 3
  *  daysLeft("NOW") // => 0
  *  daysLeft("SOON NOW SOON") // => 0
@@ -41,6 +42,8 @@ function daysLeft(line: string, since = new Date()): number {
     if (nowRegex.test(line)) { add(since); }
 
     if (soonRegex.test(line)) { days.push(3); }
+
+    if (todoRegex.test(line)) { days.push(11); }
 
     addMatches(dueRegex, function (r) {
         const year = Number(r[1]);
@@ -97,6 +100,14 @@ function pad2(s: string): string { return ("0" + s).slice(-2); }
  * */
 export function compactDate(d: Date): string { return [d.getUTCFullYear(), pad2("" + (d.getMonth() + 1)), pad2(d.getDate() + "")].join(""); }
 
+/**
+ * gcalendarDate(new Date(2018,3,11)) // => "2018/4/11"
+ * 
+ * @param d the Date to convert
+ * @return the Date in the format required for google Calendar URLs
+ * */
+export function gcalendarDate(d: Date): string { return [d.getUTCFullYear(), d.getMonth() + 1, d.getDate()].join("/"); }
+
 /** 
  * isImportant("no rush") // => false
  * isImportant("this is BIG") // => true
@@ -119,9 +130,9 @@ function isImportant(task: string): boolean { return importanceRegex.test(task);
  * priority("no big deal").group // => 4
  * 
  * @param task the task
- * @return the group and 
+ * @return the priority level group (1..4) and number of days left before the task is due 
  */
-export function priority(task: string) : Priority {
+export function priority(task: string): Priority {
     const left = daysLeft(task);
     const urgent = left <= 11;
     const important = isImportant(task);
@@ -130,18 +141,19 @@ export function priority(task: string) : Priority {
 }
 
 export interface Priority {
-    group:number;      // Eisenhower Matrix Group 1-4 
+    group: number;      // Eisenhower Matrix Group 1-4 
     daysLeft: number;  // Number of days left before task is due
 }
 
 const importanceRegex = /\b(BIG|IMPORTANT)\b/;
-export const soonRegex = /\b(SOON|NOW)\b/;
+export const soonRegex = /\b(SOON)\b/;
+export const todoRegex = /\b(TODO)\b/;
 export const nowRegex = /\b(NOW)\b/;
 export const dueRegex = /DUE\s+(\d{4})-(\d{1,2})-(\d{1,2})/g;
 export const everyDayRegex = /EVERY\s+(\d{1,2})/g;
 export const everyDayOfWeekRegex = /EVERY\s+(SUNDAY|MONDAY|TUESDAY|WEDNESDAY|THURSDAY|FRIDAY|SATURDAY)/g;
 
-const markers = [importanceRegex, soonRegex, nowRegex, dueRegex, everyDayRegex, everyDayOfWeekRegex];
+const markers = [importanceRegex, soonRegex, todoRegex, nowRegex, dueRegex, everyDayRegex, everyDayOfWeekRegex];
 
 /** 
  * removeMarkers("Task DUE 2018-1-22 DUE 2018-1-11 SOON NOW") // => "Task"
