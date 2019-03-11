@@ -2,7 +2,7 @@
   "name": "vscode-planner",
   "displayName": "Planner",
   "description": "Simple Planning in Markdown",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "author": {
     "name": "Pasqualino `Titto` Assini"
   },
@@ -50,6 +50,11 @@
         "category": "Planner"
       },
       {
+        "command": "planner.showInGoogleCalendar",
+        "title": "Show Task in Google Calendar",
+        "category": "Planner"
+      },
+      {
         "command": "planner.readFromGoogleTasks",
         "title": "Retrieve Google Tasks",
         "category": "Planner"
@@ -66,6 +71,12 @@
         "command": "planner.saveToGoogleCalendar",
         "key": "ctrl+e ctrl+c",
         "mac": "cmd+e cmd+c",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "planner.showInGoogleCalendar",
+        "key": "ctrl+s ctrl+c",
+        "mac": "cmd+s cmd+c",
         "when": "editorTextFocus && editorLangId == markdown"
       },
       {
@@ -89,37 +100,47 @@
         "language": "markdown",
         "path": "./snippets.json"
       }
+    ],
+    "grammars": [
+      {
+        "path": "./syntaxes/injection.json",
+        "scopeName": "text.planner",
+        "injectTo": [
+          "comment.line.double-slash.js",
+          "text.html.markdown"
+        ]
+      }
     ]
   },
   "scripts": {
-    "vscode:prepublish": "npm run compile",
+    "vscode:prepublish": "npm audit fix;npm run compile",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "postinstall": "node ./node_modules/vscode/bin/install",
     "test": "npm run compile && node ./node_modules/vscode/bin/test && npm run doctest",
     "pack": "rm *.vsix;vsce package",
-    "release": "npm run pack;standard-version;git commit -am \"release\";git push --follow-tags origin master;git status",
+    "release": "npm run pack;standard-version;git commit -am \"release\";git push --follow-tags origin master;git status;vsce publish",
     "doctest": "doctest-ts --tape src/*.ts;npm run compile;find src  -name \"*.doctest.ts\" | xargs -n 1 ts-node | tap-diff",
     "tslint": "tslint -p tsconfig.json -c tslint.json --format stylish 'src/**/*.ts'",
     "tslint-fix": "tslint --fix -p tsconfig.json  -c tslint.json --format stylish 'src/**/*.ts'"
   },
   "devDependencies": {
-    "@types/chai": "^4.1.2",
+    "@types/chai": "^4.1.7",
     "@types/mocha": "^2.2.42",
-    "@types/node": "^7.0.58",
-    "@types/tape": "^4.2.32",
-    "chai": "^4.1.2",
+    "@types/node": "^7.10.3",
+    "@types/tape": "^4.2.33",
+    "chai": "^4.2.0",
     "doctest-ts": "^0.3.0",
-    "mocha": "^5.0.5",
-    "standard-version": "^4.3.0",
+    "mocha": "^5.2.0",
+    "standard-version": "^4.4.0",
     "tap-diff": "^0.1.1",
-    "tape": "^4.9.0",
-    "tslint": "^5.8.0",
-    "typescript": "^2.8.1",
-    "vscode": "^1.1.14"
+    "tape": "^4.10.1",
+    "tslint": "^5.13.0",
+    "typescript": "^2.9.2",
+    "vscode": "^1.1.30"
   },
   "dependencies": {
     "@types/markdown-it": "0.0.4",
-    "markdown-it": "^8.4.1"
+    "markdown-it": "^8.4.2"
   }
 }
