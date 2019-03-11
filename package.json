@@ -2,7 +2,7 @@
   "name": "vscode-planner",
   "displayName": "Planner",
   "description": "Simple Planning in Markdown",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "author": {
     "name": "Pasqualino `Titto` Assini"
   },
