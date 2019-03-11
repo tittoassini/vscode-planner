@@ -1,0 +1,15 @@
+{
+    "scopeName": "text.planner",
+    "injectionSelector": "L:text.html.markdown",
+    "patterns": [
+        {
+            "include": "#planner"
+        }
+    ],
+    "repository": {
+        "planner": {
+            "match": "BIG|IMPORTANT|TODO|SOON|NOW|DUE\\s+(\\d{4})-(\\d{1,2})-(\\d{1,2})|EVERY\\s+(\\d{1,2})|EVERY\\s+(SUNDAY|MONDAY|TUESDAY|WEDNESDAY|THURSDAY|FRIDAY|SATURDAY)",
+            "name": "keyword.planner"
+        }
+    }
+}
