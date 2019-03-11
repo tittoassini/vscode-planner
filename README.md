@@ -47,7 +47,7 @@ For example, a plan to become a runner might be stated as follows:
 Become a Long Distance Runner SOON IMPORTANT:
 
 * Choose a training program
-* Buy running shoes
+* Buy running shoes TODO
 * Training
     * Short Run EVERY WEDNESDAY EVERY FRIDAY
     * Long Run EVERY SUNDAY
@@ -114,7 +114,7 @@ To mark a task as important, write **IMPORTANT** or **BIG** (but not **BIGLY**):
 
 ### Marking Tasks By Urgency
 
-To mark a task as being urgent write **NOW** (to be done immediately) or **SOON** (to be done in the next 3 days):
+To mark a task as being urgent write **NOW** (to be done immediately), **SOON** (to be done in the next 3 days) or **TODO** (to be done in the next 11 days):
 
     Learn all about markdown SOON
 
@@ -136,6 +136,8 @@ Note that you can have multiple markers per task.
 ## What To Do Next?
 
 All urgent or important tasks in the current file are displayed in the **TO DO** view in the Explorer area (on the left of the screen).
+
+Click on the task to jump to its position in the document.
 
 The tasks are ordered by their priority class and inside every class by their urgency.
 
@@ -187,21 +189,22 @@ Note that your task lists are converted and not deleted.
 
 All commands provided by this extensions are under the **Planner** prefix (to find them `ctrl-p` and then enter `> Planner`).
 
-| Command | ShortCut |
-|---------|----------|
-| Select Block | `ctrl-a` |
-|Save Task to Google Calendar | `ctrl-e + ctrl c` |
-| Retrieve Google Tasks | `ctrl-i + ctrl t` |
-| Open Markdow Preview | `ctrl-k v`
-| Move Selected Block Up | `Alt + ↑`
-| Move Selected Block Down | `Alt + ↓`
+| Command                      | ShortCut          |
+| ---------------------------- | ----------------- |
+| Select Block                 | `ctrl-a`          |
+| Save Task to Google Calendar | `ctrl-e + ctrl c` |
+| Show Task Date in Google Calendar | `ctrl-s + ctrl c` |
+| Retrieve Google Tasks        | `ctrl-i + ctrl t` |
+| Open Markdow Preview         | `ctrl-k v`        |
+| Move Selected Block Up       | `Alt + ↑`         |
+| Move Selected Block Down     | `Alt + ↓`         |
 
     
 
-| Snippet | ShortCut |
-|---------|----------|
-| DUE today | `due` | 
-| EVERY MONDAY .. | `mon tue wed thu fri sat sun` |  
+| Snippet         | ShortCut                      |
+| --------------- | ----------------------------- |
+| DUE today       | `due`                         |
+| EVERY MONDAY .. | `mon tue wed thu fri sat sun` |
 
 ## Known Issues
 

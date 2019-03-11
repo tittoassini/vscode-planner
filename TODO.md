@@ -1,4 +1,27 @@
+## Planning and todos info management
+ 
+ Reqs:
+ * Persistent, everywhere accessible
+ * Easy to search/browse
+ * Integrate all sources
+ Emails, Task list and Google calendar
+ TODOs global and package level
+ GitHub issues/plan
+ Source files
+
+ Principles:
+ * ? Info should be stated closest to where is to be used (so more specific level?)
+
+Footnotes:
+See [test]
+
+[test]: test
+
 # Document Processing
+
+## vscode-similar
+
+Identify similar areas of text, make it see to merge/move or simply locate similar information
 
 ## vscode-markdown-block
 
@@ -12,30 +35,41 @@
     * Outline
     * Fold all under a heading, show only top items
 
-## Markdown Planner
+## Markdown Planner BIG
+
+For development: see scripts in package.json
+
+Changes:
+* FIXED: TO DO not displayed on first file
+* Display reserved expressions (DUE, EVERY ..) in different color
 
 Release EVERY 28 EVERY MONDAY
 
 * README
   * explain email handling SOON
-* WORKS? TO DO not displayed on first file NOW
 * Fix selection 1H NOW
 * Configuration/Repository/Publish
   * automatic changelog https://keepachangelog.com/en/1.0.0/ 
   * Manage dependencies https://greenkeeper.io/
   * https://www.npmjs.com/package/vscode-extension-telemetry
 * Handle Task in priority order
-  * Display reserved expressions (DUE, EVERY ..) in different colors
-  * Customisable interval of time when dues are considered urgent
+  * Customisable interval of time when dues are considered urgent: NOW IS IN 3 DAYS.
 * Stay Concentrated
   * Start/Stop pomodoro session
 * WWW and Mobile versions
     * Shared Access (handle concurrent changes (e.g. changes from Inbox), Tasks doesn't seem to do it very well)
-        * https://code.visualstudio.com/blogs/2017/11/15/live-share
+        * https://visualstudio.microsoft.com/services/live-share/
 * Share data with Google Calendar
-  * Support EVERY entries as repetitive tasks 
+    Support EVERY entries as repetitive tasks
+    Update a previously saved task
+* Online support: make planning files accessible online
+    * Put the directory under Google Drive!
+       *  But, links to headers not present
+       *  List of task not present
+    * Export to Google Tasks
+        * Phased out?
 * Pull in data from Google Tasks
-    * open link to http://quid2.org/tasks/index.html
+    * open link to http://quid2.org/tasks/index.html (NOT WORKING!)
     * ? read directly data from there (need to login internally)
 * Planning projects: see  https://github.com/fredericaltorres/vscode-planning-syntax
 
@@ -47,10 +81,10 @@ What we want: choose what to do next, we do not need precise values, just an ord
 
 * Order by urgency first and then importance
 
-|                |  important | not important|
-|----------------|------------|--------------|
-|          urgent|    1        | 2           |
-|      not urgent|    3        | 4           |     
+|            | important | not important |
+| ---------- | --------- | ------------- |
+| urgent     | 1         | 2             |
+| not urgent | 3         | 4             |
 
 Order tasks:
 
