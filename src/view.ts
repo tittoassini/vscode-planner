@@ -27,7 +27,6 @@ export class ViewProvider implements vscode.TreeDataProvider<ViewNode>
 
     setView(nodes: ViewNode[]) {
         this.view = nodes;
-        //console.log("VIEW",nodes);
         this._onDidChangeTreeData.fire();
     }
 
@@ -38,7 +37,7 @@ export class ViewNode extends vscode.TreeItem {
     constructor(
         public readonly label: string,
         public readonly line: number,
-        public readonly children: ViewNode[]
+        public children: ViewNode[]
     ) {
         //super(label, children.length > 0 ? vscode.TreeItemCollapsibleState.Expanded : vscode.TreeItemCollapsibleState.None);
         super(label, vscode.TreeItemCollapsibleState.None);
