@@ -37,7 +37,7 @@ Identify similar areas of text, make it see to merge/move or simply locate simil
 
 ## Markdown Planner BIG
 
-For development: see scripts in package.json
+## Development: see scripts in package.json
 
 Changes:
 * FIXED: TO DO not displayed on first file
@@ -69,7 +69,7 @@ Release EVERY 28 EVERY MONDAY
     * Export to Google Tasks
         * Phased out?
 * Pull in data from Google Tasks
-    * open link to http://quid2.org/tasks/index.html (NOT WORKING!)
+    * open link to https://quid2.org/tasks/index.html (NOT WORKING!)
     * ? read directly data from there (need to login internally)
 * Planning projects: see  https://github.com/fredericaltorres/vscode-planning-syntax
 
