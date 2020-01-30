@@ -2,7 +2,8 @@
   "name": "vscode-planner",
   "displayName": "Planner",
   "description": "Simple Planning in Markdown",
-  "version": "0.3.3",
+  "license": "BSD-3-Clause",
+  "version": "0.3.5",
   "author": {
     "name": "Pasqualino `Titto` Assini"
   },
@@ -125,19 +126,19 @@
     "tslint-fix": "tslint --fix -p tsconfig.json  -c tslint.json --format stylish 'src/**/*.ts'"
   },
   "devDependencies": {
-    "@types/chai": "^4.1.7",
+    "@types/chai": "^4.2.8",
     "@types/mocha": "^2.2.42",
-    "@types/node": "^7.10.3",
+    "@types/node": "^7.10.9",
     "@types/tape": "^4.2.33",
     "chai": "^4.2.0",
     "doctest-ts": "^0.3.0",
     "mocha": "^5.2.0",
-    "standard-version": "^4.4.0",
+    "standard-version": "^7.1.0",
     "tap-diff": "^0.1.1",
-    "tape": "^4.10.1",
-    "tslint": "^5.13.0",
-    "typescript": "^2.9.2",
-    "vscode": "^1.1.30"
+    "tape": "^4.13.0",
+    "tslint": "^5.20.1",
+    "typescript": "^3.7.5",
+    "vscode": "^1.1.36"
   },
   "dependencies": {
     "@types/markdown-it": "0.0.4",
