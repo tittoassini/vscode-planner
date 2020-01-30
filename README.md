@@ -177,7 +177,7 @@ To integrate all this information in your markdown planner files, we need a way 
 
 `ctrl-i + ctrl t` (Mnemonic: **i**mport from google **t**asks) to import your task lists from Google Tasks.
 
-The command will simply open the web page http://quid2.org/tasks in your browser.
+The command will simply open the web page https://quid2.org/tasks in your browser.
 
 After logging into your Google account, your tasks lists will be converted to Markdown Planner format. 
 
